@@ -2,7 +2,9 @@ const http = require("http");
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {
-    res.end("Server created");
+    if (req.url === "/") res.end("Home endpoint");
+    if (req.url === "/products") res.end("Product endpoint");
+    if (req.url === "/users") res.end("Users endpoint");
 })
 
 server.listen(PORT, () => {
